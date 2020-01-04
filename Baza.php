@@ -49,4 +49,10 @@ class Baza
         return $niz;
     }
 
+    public function registracija($imePrezime, $usernameRegistraicija, $passwordRegistraicija)
+    {
+        $upit = "INSERT INTO korisnik(imePrezime,username,password) VALUES ('".$imePrezime."','".$usernameRegistraicija."','".$passwordRegistraicija."')";
+        return $this->mysqli->query($upit);
+    }
+
 }

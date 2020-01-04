@@ -82,16 +82,16 @@ if(isset($_GET['poruka'])){
 					</div>
 				</div>
                 <div class="row">
-                    <form method="POST" action="kontroler.php?funkcija=login">
+                    <form method="POST" action="kontroler.php?funkcija=registracija">
+                        <label for="imeIPrezime">Ime i prezime</label>
+                        <input type="text" name="imeIPrezime" class="form-control" required>
                         <label for="username">Username</label>
                         <input type="text" name="username" class="form-control" required>
                         <label for="password">Password</label>
                         <input type="password" name="password" class="form-control" required>
                         <hr>
-                        <input type="submit" class="btn-primary btn-lg" name="login" value="Uloguj se">
+                        <input type="submit" class="btn-primary btn-lg" name="registracija" value="Registruj se">
                     </form>
-                    <a href="registracija.php" class="btn-link">Nemate nalog?</a>
-
                 </div>
 			</div>
 		</div>

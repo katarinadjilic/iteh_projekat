@@ -27,4 +27,15 @@ switch ($funkcija){
         $osobe = $baza->vratiSveOsobe();
         echo json_encode($osobe);
         break;
+    case 'registracija':
+        $imePrezime = $baza->ocistiOdSqlInjectiona($_POST['imeIPrezime']);
+        $usernameRegistraicija = $baza->ocistiOdSqlInjectiona($_POST['username']);
+        $passwordRegistraicija = $baza->ocistiOdSqlInjectiona($_POST['password']);
+        $uspesno = $baza->registracija($imePrezime,$usernameRegistraicija,$passwordRegistraicija);
+        if($uspesno){
+           header("Location: registracija.php?poruka=Uspesno registrovan korisnik");
+        }else{
+            header("Location: registracija.php?poruka=Neuspesno registracija");
+        }
+        break;
 }
