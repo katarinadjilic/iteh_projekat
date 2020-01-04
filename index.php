@@ -1,3 +1,6 @@
+<?php
+include "sesija.php";
+?>
 <!DOCTYPE HTML>
 
 <html>
@@ -49,15 +52,7 @@
 					<div class="col-sm-2 col-xs-12">
 						<div id="gtco-logo"><a href="index.php"><img src="images/logo.png" class="img img-responsive"> </div>
 					</div>
-					<div class="col-xs-10 text-right menu-1">
-						<ul>
-							<li class="active"><a href="index.php">Home</a></li>
-							<li><a href="about.php">O nama</a></li>
-
-							<li><a href="glasaj.php">Glasajte</a></li>
-							<li><a href="login.php">Login</a></li>
-						</ul>
-					</div>
+					<?php include 'meni.php' ?>
 				</div>
 				
 			</div>
