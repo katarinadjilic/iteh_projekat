@@ -23,4 +23,8 @@ switch ($funkcija){
         $kategorije = $baza->vratiSveKategorije();
         echo json_encode($kategorije);
         break;
+    case 'osobe':
+        $osobe = $baza->vratiSveOsobe();
+        echo json_encode($osobe);
+        break;
 }

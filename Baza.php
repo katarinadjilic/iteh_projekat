@@ -38,4 +38,15 @@ class Baza
         return $niz;
     }
 
+    public function vratiSveOsobe()
+    {
+        $niz = [];
+        $upit = "SELECT * FROM osoba";
+        $rezultat = $this->mysqli->query($upit);
+        while ($red = $rezultat->fetch_object()){
+            $niz[] =  new Osoba($red->osobaID,$red->imePrezime,$red->datumRodjenja,$red->opis);
+        }
+        return $niz;
+    }
+
 }
