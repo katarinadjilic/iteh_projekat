@@ -6,3 +6,6 @@ include 'domen/Osoba.php';
 include 'domen/Glasanje.php';
 
 require 'sesija.php';
+include 'Baza.php';
+
+$baza = new Baza();

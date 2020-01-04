@@ -1,5 +1,9 @@
 <?php
 include "autoload.php";
+$poruka ="";
+if(isset($_GET['poruka'])){
+    $poruka = $_GET['poruka'];
+}
 ?>
 <!DOCTYPE HTML>
 
@@ -58,51 +62,41 @@ include "autoload.php";
 			</div>
 		</nav>
 
-		<div class="gtco-container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="owl-carousel owl-carousel-fullwidth">
-						<div class="item">
-							<a href="#">
-								<img src="images/1.jpg" alt="Grammy prva slika">
-								<div class="slider-copy">
-									<h2>Grammy awards 2019</h2>
-								</div>
-							</a>
-						</div>
-						<div class="item">
-							<a href="#">
-								<img src="images/2.jpg" alt="Grammy druga slika">
-								<div class="slider-copy">
-									<h2>Grammy awards 2019</h2>
-								</div>
-							</a>
-						</div>
-						<div class="item">
-							<a href="#">
-								<img src="images/3.jpg" alt="Grammy treca slika">
-								<div class="slider-copy">
-									<h2>Grammy awards 2019</h2>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
-						<h2>Dobro nam dosli</h2>
-						<p>Ovo je fan sajt gde mozemo da glasamo za grammy awards 2020. godine. Izaberimo nase pobednike i pruzimo im podrsku.</p>
+						<h2>Login strana</h2>
+						<p>Potrebno je ulogovati se da biste glasali</p>
+                        <?php
+                            if($poruka != ''){
+
+                                ?>
+                            <div class="alert alert-info" role="alert">
+                                <?php echo $poruka; ?>
+                            </div>
+                        <?php
+                            }
+                        ?>
+                        ?>
 					</div>
 				</div>
+                <div class="row">
+                    <form method="POST" action="kontroler.php?funkcija=login">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" class="form-control" required>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                        <hr>
+                        <input type="submit" class="btn-primary btn-lg" name="login" value="Uloguj se">
+                    </form>
+                    <a href="registracija.php" class="btn-link">Nemate nalog?</a>
+
+                </div>
 			</div>
 		</div>
 
-        <?php include 'futer.php'; ?>
+		<?php include 'futer.php'; ?>
 
 	</div>
 

@@ -1,13 +1,13 @@
 <div class="col-xs-10 text-right menu-1">
     <ul>
-        <li class="active"><a href="index.php">Home</a></li>
+        <li><a href="index.php">Home</a></li>
         <li><a href="about.php">O nama</a></li>
         <li><a href="prikazKategorija.php">Kategorije</a></li>
         <li><a href="prikazOsoba.php">Nominovani</a></li>
         <?php
             if($_SESSION['ulogovan']){
     ?>
-                <li style="color: darkred;"><a href="glasaj.php">Glasajte</a></li>
+                <li ><a style="color: darkred; font-weight: bold" href="glasaj.php">Glasajte</a></li>
 
                 <?php
                 if($_SESSION['admin']){
@@ -17,7 +17,7 @@
                     <?php
                 }
                 ?>
-                <li><a href="odjavise.php">Logout</a></li>
+                <li><a style="color: blueviolet;" href="odjavise.php">Izloguj se, <?php echo $_SESSION['ulogovaniKorisnik']->getImePrezime(); ?></a></li>
                 <?php
             }else{
                 ?>
