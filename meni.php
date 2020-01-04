@@ -2,8 +2,15 @@
     <ul>
         <li><a href="index.php">Home</a></li>
         <li><a href="about.php">O nama</a></li>
-        <li><a href="prikazKategorija.php">Kategorije</a></li>
-        <li><a href="prikazOsoba.php">Nominovani</a></li>
+        <li class="has-dropdown">
+            <a href="#">Prikaz</a>
+            <ul class="dropdown">
+                <li><a href="prikazKategorija.php">Kategorije</a></li>
+                <li><a href="prikazOsoba.php">Nominovani</a></li>
+            </ul>
+        </li>
+
+        <li><a href="rezultatiGlasanja.php">Rezultati</a></li>
         <?php
             if($_SESSION['ulogovan']){
     ?>

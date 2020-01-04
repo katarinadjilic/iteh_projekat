@@ -66,7 +66,7 @@ if(isset($_GET['poruka'])){
 			<div class="gtco-container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
-						<h2>Login strana</h2>
+						<h2>Forma za registraciju</h2>
 						<p>Potrebno je ulogovati se da biste glasali</p>
                         <?php
                             if($poruka != ''){
