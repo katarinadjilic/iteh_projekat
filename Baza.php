@@ -27,4 +27,15 @@ class Baza
         return null;
     }
 
+    public function vratiSveKategorije()
+    {
+        $niz = [];
+        $upit = "SELECT * FROM kategorija";
+        $rezultat = $this->mysqli->query($upit);
+        while ($red = $rezultat->fetch_object()){
+            $niz[] =  new Kategorija($red->kategorijaID,$red->nazivKategorije,$red->opisKategorije);
+        }
+        return $niz;
+    }
+
 }

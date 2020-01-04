@@ -19,4 +19,8 @@ switch ($funkcija){
             header("Location: login.php?poruka=Neuspesno logovanje,proverite username i password");
         }
         break;
+    case 'kategorije':
+        $kategorije = $baza->vratiSveKategorije();
+        echo json_encode($kategorije);
+        break;
 }
