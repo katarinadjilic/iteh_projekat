@@ -93,4 +93,15 @@ class Baza
         $upit = "INSERT INTO glasanje(korisnikID,osobaID,kategorijaID) VALUES (".$korisnikID.",".$osobaID.",".$kategorijaID.")";
         return $this->mysqli->query($upit);
     }
+
+    public function svaGlasanja()
+    {
+        $upit = "SELECT o.imePrezime,kor.imePrezime as imePrezimeKorisnika, k.nazivKategorije, g.glasanjeID fROM glasanje g JOIN osoba o on g.osobaID = o.osobaID JOIN kategorija k on g.kategorijaID = k.kategorijaID  join korisnik kor on g.korisnikID = kor.korisnikID";
+        $niz = [];
+        $rezultat = $this->mysqli->query($upit);
+        while ($red = $rezultat->fetch_object()){
+            $niz[] =  $red;
+        }
+        return $niz;
+    }
 }

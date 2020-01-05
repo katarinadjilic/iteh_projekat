@@ -42,5 +42,9 @@ switch ($funkcija){
         $rezultati = $baza->rezultatiGlasanja($_GET['sort']);
         echo json_encode($rezultati);
         break;
+    case 'glasanja':
+        $rezultati = $baza->svaGlasanja();
+        echo json_encode($rezultati);
+        break;
 
 }
