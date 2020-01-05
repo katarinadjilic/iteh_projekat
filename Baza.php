@@ -55,4 +55,15 @@ class Baza
         return $this->mysqli->query($upit);
     }
 
+    public function rezultatiGlasanja($sort)
+    {
+        $upit = "SELECT o.imePrezime,k.nazivKategorije, count(g.glasanjeID) as brojGlasova fROM glasanje g JOIN osoba o on g.osobaID = o.osobaID JOIN kategorija k on g.kategorijaID = k.kategorijaID GROUP BY g.osobaID ORDER by count(g.glasanjeID) ".$sort;
+        $niz = [];
+        $rezultat = $this->mysqli->query($upit);
+        while ($red = $rezultat->fetch_object()){
+            $niz[] =  $red;
+        }
+        return $niz;
+    }
+
 }

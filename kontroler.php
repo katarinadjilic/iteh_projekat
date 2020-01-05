@@ -38,4 +38,9 @@ switch ($funkcija){
             header("Location: registracija.php?poruka=Neuspesno registracija");
         }
         break;
+    case 'sortiranjeglasanja':
+        $rezultati = $baza->rezultatiGlasanja($_GET['sort']);
+        echo json_encode($rezultati);
+        break;
+
 }
