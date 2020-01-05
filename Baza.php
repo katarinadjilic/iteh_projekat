@@ -66,4 +66,23 @@ class Baza
         return $niz;
     }
 
+    public function brojGlassovaZaKorisnika($korisnikID)
+    {
+        $upit = "SELECT count(g.glasanjeID) as brojGlasova fROM glasanje g JOIN korisnik k on g.korisnikID = k.korisnikID GROUP BY g.korisnikID HAVING g.korisnikID = ".$korisnikID;
+        $rezultat = $this->mysqli->query($upit);
+        while ($red = $rezultat->fetch_object()){
+            return $red->brojGlasova;
+        }
+        return 0;
+    }
+    public function brojGlassovaPoOsobi($osobaID)
+    {
+        $upit = "SELECT count(g.glasanjeID) as brojGlasova fROM glasanje g JOIN osoba o on g.osobaID = o.osobaID GROUP BY g.osobaID HAVING g.osobaID = ".$osobaID;
+        $rezultat = $this->mysqli->query($upit);
+        while ($red = $rezultat->fetch_object()){
+            return $red->brojGlasova;
+        }
+        return 0;
+    }
+
 }
