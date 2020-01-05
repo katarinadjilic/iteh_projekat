@@ -85,4 +85,12 @@ class Baza
         return 0;
     }
 
+    public function glasaj($niz)
+    {
+        $korisnikID = $niz['korisnikID'];
+        $osobaID = $niz['osobaID'];
+        $kategorijaID = $niz['kategorijaID'];
+        $upit = "INSERT INTO glasanje(korisnikID,osobaID,kategorijaID) VALUES (".$korisnikID.",".$osobaID.",".$kategorijaID.")";
+        return $this->mysqli->query($upit);
+    }
 }
