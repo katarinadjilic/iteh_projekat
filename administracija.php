@@ -35,6 +35,7 @@ include "autoload.php";
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 
 	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
 
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/respond.min.js"></script>
@@ -80,9 +81,9 @@ include "autoload.php";
                         <label for="imePrezime">Ime prezime nominovog</label>
                         <input type="text" id="imePrezime" class="form-control" >
                         <label for="datumRodjenja">Datum rodjenja</label>
-                        <input type="text" id="datumRodjenja" class="form-control" >
+                        <input type="text" id="datumRodjenja" class="form-control datepicker" >
                         <label for="opis">Opis</label>
-                        <input type="text" id="opis" class="form-control" >
+                        <textarea class="form-control" rows="10" id="opis"></textarea>
                         <hr>
                         <button id="dugmeIzmena" class="btn-lg btn-primary" onclick="izmeni()">Izmeni podatke o nominovanom</button>
                     </div>
@@ -104,8 +105,14 @@ include "autoload.php";
 	<script src="js/jquery.waypoints.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
+        $( function() {
+            $( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+
+
         function pronadji(){
             $.ajax({
                 url: 'kontroler.php?funkcija=glasanja',
@@ -145,6 +152,20 @@ include "autoload.php";
         }
 
         pronadji();
+
+        function ucitajOsobu(id) {
+            $.ajax({
+                url: 'kontroler.php?funkcija=ucitajOsobu&id='+id,
+                success: function (data) {
+                    let osoba = JSON.parse(data);
+                    alert(data);
+                    $("#osobaID").val(osoba.osobaID);
+                    $("#imePrezime").val(osoba.imePrezime);
+                    $("#datumRodjenja").val(osoba.datumRodjenja);
+                    $("#opis").val(osoba.opis);
+                }
+            })
+        }
 
     </script>
 

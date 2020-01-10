@@ -46,5 +46,9 @@ switch ($funkcija){
         $rezultati = $baza->svaGlasanja();
         echo json_encode($rezultati);
         break;
+    case 'ucitajOsobu':
+        $rez = $baza->ucitajOsobu($_GET['id']);
+        echo json_encode($rez);
+        break;
 
 }

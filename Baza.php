@@ -104,4 +104,14 @@ class Baza
         }
         return $niz;
     }
+
+    public function ucitajOsobu($id)
+    {
+        $upit = "SELECT * FROM osoba WHERE osobaID= ".$id;
+        $rezultat = $this->mysqli->query($upit);
+        while ($red = $rezultat->fetch_object()){
+            return new Osoba($red->osobaID,$red->imePrezime,$red->datumRodjenja,$red->opis);
+        }
+        return null;
+    }
 }
