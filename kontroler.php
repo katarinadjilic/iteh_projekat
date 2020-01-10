@@ -50,5 +50,17 @@ switch ($funkcija){
         $rez = $baza->ucitajOsobu($_GET['id']);
         echo json_encode($rez);
         break;
+    case 'izmeniosobu':
+        $imePrezime = $baza->ocistiOdSqlInjectiona($_POST['imePrezime']);
+        $datumRodjenja = $baza->ocistiOdSqlInjectiona($_POST['datumRodjenja']);
+        $opis = $baza->ocistiOdSqlInjectiona($_POST['opis']);
+        $osobaID = $baza->ocistiOdSqlInjectiona($_POST['osobaID']);
+        $uspesno = $baza->izmeniOsobu($imePrezime,$datumRodjenja,$opis,$osobaID);
+        if($uspesno){
+            echo("Uspesno izmenjeni podaci o osobi");
+        }else{
+            echo("Doslo je do greske prilikom izmene podataka");
+        }
+        break;
 
 }

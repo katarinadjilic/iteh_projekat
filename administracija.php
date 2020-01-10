@@ -65,6 +65,7 @@ include "autoload.php";
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
 						<h2>Administrcija</h2>
+                        <p id="poruke"></p>
 					</div>
 				</div>
 			</div>
@@ -83,7 +84,7 @@ include "autoload.php";
                         <label for="datumRodjenja">Datum rodjenja</label>
                         <input type="text" id="datumRodjenja" class="form-control datepicker" >
                         <label for="opis">Opis</label>
-                        <textarea class="form-control" rows="10" id="opis"></textarea>
+                        <input type="text" class="form-control" id="opis">
                         <hr>
                         <button id="dugmeIzmena" class="btn-lg btn-primary" onclick="izmeni()">Izmeni podatke o nominovanom</button>
                     </div>
@@ -168,7 +169,30 @@ include "autoload.php";
         }
 
     </script>
+    <script>
+        function izmeni() {
+            let podaci = {
+                osobaID : $("#osobaID").val(),
+                imePrezime : $("#imePrezime").val(),
+                datumRodjenja : $("#datumRodjenja").val(),
+                opis : $("#opis").val()
+            };
 
+            let osobaID = $("#osobaID").val();
+            if(osobaID != ''){
+                $.ajax({
+                    url : 'kontroler.php?funkcija=izmeniosobu',
+                    type: 'POST',
+                    data: podaci,
+                    success: function (data) {
+                        $("#poruke").html(data);
+                    }
+                })
+            }else{
+                $("#poruke").html("Morate ucitati osobu da biste menjali njene podatke");
+            }
+        }
+    </script>
 
 	</body>
 </html>

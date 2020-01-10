@@ -107,11 +107,17 @@ class Baza
 
     public function ucitajOsobu($id)
     {
-        $upit = "SELECT * FROM osoba WHERE osobaID= ".$id;
+        $upit = "SELECT o.* FROM osoba o join glasanje g on o.osobaID = g.osobaID WHERE g.glasanjeID= ".$id;
         $rezultat = $this->mysqli->query($upit);
         while ($red = $rezultat->fetch_object()){
             return new Osoba($red->osobaID,$red->imePrezime,$red->datumRodjenja,$red->opis);
         }
         return null;
+    }
+
+    public function izmeniOsobu($imePrezime, $datumRodjenja, $opis, $osobaID)
+    {
+        $upit = "UPDATE osoba set imePrezime='" . $imePrezime . "',datumRodjenja = '".$datumRodjenja."',opis='".$opis."' WHERE osobaID=".$osobaID;
+        return $this->mysqli->query($upit);
     }
 }
