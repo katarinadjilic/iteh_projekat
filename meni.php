@@ -7,6 +7,7 @@
             <ul class="dropdown">
                 <li><a href="prikazKategorija.php">Kategorije</a></li>
                 <li><a href="prikazOsoba.php">Nominovani</a></li>
+                <li><a href="fanDana.php">Fana dana</a></li>
             </ul>
         </li>
 
