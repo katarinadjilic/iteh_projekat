@@ -62,5 +62,15 @@ switch ($funkcija){
             echo("Doslo je do greske prilikom izmene podataka");
         }
         break;
+    case 'obrisiglasanje':
+        $id = $baza->ocistiOdSqlInjectiona($_POST['id']);
+
+        $uspesno = $baza->obrisi($id);
+        if($uspesno){
+            echo("Uspesno obrisani podaci o glasanju");
+        }else{
+            echo("Doslo je do greske prilikom brisanja podataka");
+        }
+        break;
 
 }

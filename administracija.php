@@ -1,5 +1,9 @@
 <?php
 include "autoload.php";
+$poruka ="";
+if(isset($_GET['poruka'])){
+    $poruka = $_GET['poruka'];
+}
 ?>
 <!DOCTYPE HTML>
 
@@ -66,6 +70,16 @@ include "autoload.php";
 					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
 						<h2>Administrcija</h2>
                         <p id="poruke"></p>
+                        <?php
+                        if($poruka != ''){
+
+                            ?>
+                            <div class="alert alert-info" role="alert">
+                                <?php echo $poruka; ?>
+                            </div>
+                            <?php
+                        }
+                        ?>
 					</div>
 				</div>
 			</div>
@@ -91,6 +105,19 @@ include "autoload.php";
                 </div>
             </div>
 		</div>
+
+        <div class="gtco-section">
+            <div class="gtco-container">
+                <div class="row">
+                    <form method="POST" action="uploadGalerije.php" enctype="multipart/form-data">
+                        <label for="fileToUpload">Izaberi sliku za galeriju:</label>
+                        <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                        <hr>
+                        <input type="submit" value="Ubaci u galeriju" name="submit" class="btn btn-success">
+                    </form>
+                </div>
+            </div>
+        </div>
 
         <?php include 'futer.php'; ?>
 
@@ -191,6 +218,18 @@ include "autoload.php";
             }else{
                 $("#poruke").html("Morate ucitati osobu da biste menjali njene podatke");
             }
+        }
+
+        function obrisi(id) {
+            $.ajax({
+                url : 'kontroler.php?funkcija=obrisiglasanje',
+                type: 'POST',
+                data: {id:id},
+                success: function (data) {
+                    $("#poruke").html(data);
+                    pronadji();
+                }
+            })
         }
     </script>
 

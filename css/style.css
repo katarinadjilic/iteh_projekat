@@ -1638,5 +1638,7 @@ blockquote p > cite {
   background: none;
   background: #4d4d4d;
 }
-
+.onamatb {
+  padding: 10px;
+}
 /*# sourceMappingURL=style.css.map */

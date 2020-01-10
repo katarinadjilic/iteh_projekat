@@ -47,58 +47,72 @@ include "autoload.php";
 
 		<nav class="gtco-nav" role="navigation">
 			<div class="gtco-container">
-
+				
 				<div class="row">
 					<div class="col-sm-2 col-xs-12">
 						<div id="gtco-logo"><a href="index.php"><img src="images/logo.png" class="img img-responsive"> </div>
 					</div>
 					<?php include 'meni.php' ?>
 				</div>
-
+				
 			</div>
 		</nav>
+
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="owl-carousel owl-carousel-fullwidth">
+						<div class="item">
+							<a href="#">
+								<img src="images/1.jpg" alt="Grammy prva slika">
+								<div class="slider-copy">
+									<h2>Grammy awards 2019</h2>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+								<img src="images/2.jpg" alt="Grammy druga slika">
+								<div class="slider-copy">
+									<h2>Grammy awards 2019</h2>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+								<img src="images/3.jpg" alt="Grammy treca slika">
+								<div class="slider-copy">
+									<h2>Grammy awards 2019</h2>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
-						<h2>Nesto malo o nama</h2>
-						<p>Mi smo grupa studenata sa FON-a koja je zelela da omoguci svim fanovima GRAMMY nagrada da glasaju za svoje favorite. Rezultate glasanja cete moci da vidite u bilo kom trenutku</p>
+						<h2>Fan dana</h2>
+                        <hr>
+
 					</div>
 				</div>
-			</div>
-            <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
-                        <h2>Katarina Ilic</h2>
-                        <img class="img-responsive" src="images/katarina.jpg">
-                        <p>Student 4. godine ISIT-a</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>Irena Ilic</h2>
-                        <img class="img-responsive" src="images/irena.jpg">
-                        <p>Student 4. godine ISIT-a</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>Ana Jankovic</h2>
-                        <img class="img-responsive" src="images/ana.jpg">
-                        <p>Student 4. godine ISIT-a</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <h2>Neke slike sa nasih TB</h2>
-                    <?php
-                    foreach (glob("galerija/*.*") as $filename) {
-                        ?>
-                        <div class="col-md-6 onamatb">
-                            <img class="img-responsive" src="<?= $filename ?>">
-                        </div>
-                    <?php
-                    }
-                    ?>
-                </div>
-            </div>
+                    <div class="col-md-3">
+                        <img id="slikaFana" class="img-responsive text-center" src="">
 
+                    </div>
+                    <div class="col-md-9">
+                        <h3 id="ime"></h3>
+                        <p id="brGodina"></p>
+                        <p id="ulica"></p>
+                        <p id="email"></p>
+                    </div>
+                </div>
+			</div>
 		</div>
 
         <?php include 'futer.php'; ?>
@@ -115,6 +129,28 @@ include "autoload.php";
 	<script src="js/jquery.waypoints.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+    <script>
+        $.ajax({
+            url: 'https://randomuser.me/api/',
+            dataType: 'json',
+            success: function(data) {
+                let osoba = data.results[0];
+
+                let imePrezime = osoba.name.first + ' '+osoba.name.last;
+                let email = osoba.email;
+                let slikaUrl = osoba.picture.large;
+                let brojGodina = osoba.dob.age + ' godina';
+                let ulica = osoba.location.street.name + ','+osoba.location.street.number
+
+                $("#ime").html(imePrezime);
+                $("#email").html(email);
+                $("#brGodina").html(brojGodina);
+                $("#ulica").html(ulica);
+                $("#slikaFana").attr('src', slikaUrl);
+
+            }
+        });
+    </script>
 
 	</body>
 </html>

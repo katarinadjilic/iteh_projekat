@@ -120,4 +120,10 @@ class Baza
         $upit = "UPDATE osoba set imePrezime='" . $imePrezime . "',datumRodjenja = '".$datumRodjenja."',opis='".$opis."' WHERE osobaID=".$osobaID;
         return $this->mysqli->query($upit);
     }
+
+    public function obrisi($id)
+    {
+        $upit = "DELETE FROM glasanje WHERE glasanjeID=".$id;
+        return $this->mysqli->query($upit);
+    }
 }
