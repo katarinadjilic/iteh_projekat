@@ -76,7 +76,7 @@ include "autoload.php";
                     </div>
                     <div class="col-md-4">
                         <h2>Irena Ilic</h2>
-                        <img class="img-responsive" src="images/irena.jpg">
+                        <img class="img-responsive" src="images/irenanova.jpg">
                         <p>Student 4. godine ISIT-a</p>
                     </div>
                     <div class="col-md-4">
