@@ -76,7 +76,7 @@ include "autoload.php";
                     </div>
                     <div class="col-md-4">
                         <h2>Irena Ilic</h2>
-                        <img class="img-responsive" src="images/irenanova.jpg">
+                        <img class="img-responsive" src="images/irenanova2.jpg">
                         <p>Student 4. godine ISIT-a</p>
                     </div>
                     <div class="col-md-4">
@@ -86,7 +86,7 @@ include "autoload.php";
                     </div>
                 </div>
                 <div class="row">
-                    <h2>Neke slike sa nasih TB</h2>
+                    <h2>Neke slike sa nasih Teambuilding-a</h2>
                     <?php
                     foreach (glob("galerija/*.*") as $filename) {
                         ?>

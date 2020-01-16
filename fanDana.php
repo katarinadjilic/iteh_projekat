@@ -64,7 +64,7 @@ include "autoload.php";
 					<div class="owl-carousel owl-carousel-fullwidth">
 						<div class="item">
 							<a href="#">
-								<img src="images/1.jpg" alt="Grammy prva slika">
+								<img src="images/1g.jpg" alt="Grammy prva slika">
 								<div class="slider-copy">
 									<h2>Grammy awards 2019</h2>
 								</div>
@@ -72,7 +72,7 @@ include "autoload.php";
 						</div>
 						<div class="item">
 							<a href="#">
-								<img src="images/2.jpg" alt="Grammy druga slika">
+								<img src="images/4g.jpg" alt="Grammy druga slika">
 								<div class="slider-copy">
 									<h2>Grammy awards 2019</h2>
 								</div>
@@ -80,7 +80,7 @@ include "autoload.php";
 						</div>
 						<div class="item">
 							<a href="#">
-								<img src="images/3.jpg" alt="Grammy treca slika">
+								<img src="images/3g.jpg" alt="Grammy treca slika">
 								<div class="slider-copy">
 									<h2>Grammy awards 2019</h2>
 								</div>
